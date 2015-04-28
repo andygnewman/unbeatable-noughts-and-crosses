@@ -37,17 +37,18 @@ describe Game do
     context 'evaluating a winner:' do
 
       it 'should announce the computer wins with 3 in a row' do
-        allow(game).to receive(:board).and_return(comp_winning_board)
+        allow(game).to receive(:current_board).and_return(comp_winning_board)
         expect(game.winner).to eq('Computer Wins')
       end
 
       it 'should announce the human wins with 3 in a row - never happen!' do
-        allow(game).to receive(:board).and_return(human_winning_board)
+        allow(game).to receive(:current_board).and_return(human_winning_board)
         expect(game.winner).to eq('Human Wins')
       end
 
       it 'should return false if no winner' do
-        allow(game).to receive(:board).and_return(no_winning_board)
+        allow(game).to receive(:current_board).and_return(no_winning_board)
+        allow(game).to receive(:empty_cells).and_return([5])
         expect(game.winner).to be(false)
       end
 

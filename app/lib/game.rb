@@ -21,6 +21,7 @@ class Game
       return 'Computer Wins' if row.select { |cell| current_board[cell] == :x }.length == 3
       return 'Human Wins' if row.select { |cell| current_board[cell] == :o }.length == 3
     end
+    return 'Stalemate - a draw' if draw?
     return false
   end
 
@@ -38,6 +39,10 @@ class Game
 
   def human_turn(cell)
     board.play(cell.to_i, :o)
+  end
+
+  def draw?
+    empty_cells.length == 0
   end
 
 end

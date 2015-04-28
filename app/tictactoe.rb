@@ -34,7 +34,7 @@ class TicTacToe < Sinatra::Base
     @board = GAME.current_board
     erb :winner
   end
-
+  
 
   # start the server if ruby file executed directly
   run! if app_file == $0
