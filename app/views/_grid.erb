@@ -1,0 +1,16 @@
+<table class="tictactoe-grid">
+  <th colspan="3">Tic Tac Toe</th>
+  <% PUT BOARD IN HERE.each_slice(3) do |slice| %>
+    <tr>
+      <td><%= indexed_rows[index] %></td>
+      <% slice.each do |value|%>
+      <td style="font-weight: <%= ['M','S'].include?(value) ? 'bold' : 'normal' %>" ><%= value %></td>
+      <%end%>
+    </tr>
+  <%end%>
+</table>
+
+<h3>Key:</h3>
+<p> a - available to play</p>
+<p> <span style="font-weight: bold;">X</span> Computer</p>
+<p><span style="font-weight: bold;">O</span> Human</p>

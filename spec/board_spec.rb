@@ -1,4 +1,4 @@
-require_relative '../lib/board.rb'
+require_relative '../app/lib/board.rb'
 
 describe Board do
 

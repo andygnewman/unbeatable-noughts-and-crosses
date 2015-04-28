@@ -1,4 +1,4 @@
-require_relative '../lib/cell.rb'
+require_relative '../app/lib/cell.rb'
 
 describe Cell do
 

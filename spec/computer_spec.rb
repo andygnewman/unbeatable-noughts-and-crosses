@@ -1,4 +1,4 @@
-require_relative '../lib/computer.rb'
+require_relative '../app/lib/computer.rb'
 
 describe Computer do
 
