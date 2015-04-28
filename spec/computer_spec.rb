@@ -5,12 +5,16 @@ describe Computer do
   let(:computer) {Computer.new}
   let(:board_start) {{1 => :a, 2 => :a, 3 => :a, 4 => :a, 5 => :a, 6 => :a, 7 => :a, 8 => :a, 9 => :a}}
   let(:board_second_two) {{1 => :a, 2 => :o, 3 => :a, 4 => :a, 5 => :x, 6 => :a, 7 => :a, 8 => :a, 9 => :a}}
-  let(:board_human_two_row) {{1 => :x, 2 => :o, 3 => :o, 4 => :a, 5 => :x, 6 => :a, 7 => :x, 8 => :a, 9 => :o}}
+  let(:board_human_two_row) {{1 => :x, 2 => :o, 3 => :o, 4 => :a, 5 => :x, 6 => :a, 7 => :a, 8 => :x, 9 => :o}}
   let(:board_computer_two_row) {{1 => :x, 2 => :x, 3 => :o, 4 => :o, 5 => :x, 6 => :a, 7 => :a, 8 => :o, 9 => :a}}
 
   context 'choosing its moves:' do
 
     context 'first move' do
+
+      it 'should know how many turns have taken place' do
+        expect(computer.how_many_turns(board_second_two)).to eq(2)
+      end
 
       it 'should choose the centre when going first' do
         expect(computer.first_move).to eq(5)
@@ -19,10 +23,6 @@ describe Computer do
     end
 
     context 'second move' do
-
-      it 'should know how many turns have taken place' do
-        expect(computer.how_many_turns(board_second_two)).to eq(2)
-      end
 
       it 'should know the human first move when evaluating second move' do
         expect(computer.human_first_turn(board_second_two)).to eq(2)
@@ -59,6 +59,17 @@ describe Computer do
 
       it 'should pick the first available cell if no win or block available' do
         expect(computer.first_available(board_computer_two_row)).to eq(6)
+      end
+
+    end
+
+    context 'integration testing of top level method' do
+
+      it 'should pick the right move in a variety of scenarios' do
+        expect(computer.choice(board_start)).to eq(5)
+        expect(computer.choice(board_second_two)).to eq(9)
+        expect(computer.choice(board_computer_two_row)).to eq(9)
+        expect(computer.choice(board_human_two_row)).to eq(6)
       end
 
     end
