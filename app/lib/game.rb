@@ -1,3 +1,6 @@
+require_relative 'board'
+# require 'cell'
+
 class Game
 
   attr_reader :board, :turn

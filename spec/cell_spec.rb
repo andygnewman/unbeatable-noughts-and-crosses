@@ -7,7 +7,7 @@ describe Cell do
   context 'a cell when initialized should:' do
 
     it 'should have a status of available' do
-      expect(cell.status).to eq(:available)
+      expect(cell.status).to eq(:a)
     end
 
   end

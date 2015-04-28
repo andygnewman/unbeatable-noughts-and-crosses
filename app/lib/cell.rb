@@ -3,7 +3,7 @@ class Cell
   attr_reader :status
 
   def initialize
-    @status = :available
+    @status = :a
   end
 
   def play(symbol)
@@ -12,7 +12,7 @@ class Cell
   end
 
   def not_available?
-    @status != :available
+    @status != :a
   end
 
 end
