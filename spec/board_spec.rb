@@ -26,6 +26,10 @@ describe Board do
       expect(board.get_board).to eq(summary_board)
     end
 
+    it 'should return an array of empty cells' do
+      expect(board.get_empty_cells).to eq([1 ,2 ,3 ,4 ,5 ,6 ,7 , 8, 9])
+    end
+
   end
 
 end

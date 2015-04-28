@@ -8,3 +8,8 @@ Feature: An unbeatable Tic Tic Toe
   Then I should see "Welcome to Tic Tac Toe"
   And I should see "Start the game"
   And there should be a table with 9 numbered cells
+
+  Scenario: Starting the game
+  Given I am on the homepage
+  And I click "Start the game"
+  Then I should see an "X" in cell "5"

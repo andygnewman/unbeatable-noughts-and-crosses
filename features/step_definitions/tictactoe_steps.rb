@@ -9,3 +9,11 @@ end
 Then(/^there should be a table with (\d+) numbered cells$/) do | num |
   num.to_i.times { | n | expect(page.all('table td')[n]).to have_content(n+1) }
 end
+
+Given(/^I click "([^"]*)"$/) do |target|
+  click_on target
+end
+
+Then(/^I should see an "([^"]*)" in cell "([^"]*)"$/) do |content, cell|
+  expect(page.all('table td')[cell.to_i - 1]).to have_content(content)
+end

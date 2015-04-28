@@ -35,7 +35,7 @@ class Computer
   def best_possible(board)
     return computer_win(board) unless computer_win(board) == false
     return block_human(board) unless block_human(board) == false
-    return first_available
+    return first_available(board)
   end
 
   def computer_win(board)

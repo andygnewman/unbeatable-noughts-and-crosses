@@ -15,8 +15,14 @@ class Board
 
   def get_board
     board_hash = {}
-    @cells.each { | grid_ref, cell | board_hash[grid_ref] = cell.status }
+    @cells.each { | ref, cell | board_hash[ref] = cell.status }
     return board_hash
   end
 
+  def get_empty_cells
+    empty_cells = []
+    @cells.each { | ref, cell | empty_cells << ref if cell.status == :a}
+    return empty_cells
+  end
+  
 end

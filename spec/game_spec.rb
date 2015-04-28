@@ -5,6 +5,8 @@ describe Game do
   let(:game) {Game.new(board_class)}
   let(:board_class) {double :board_class, new: board}
   let(:board) {double :board}
+  let(:computer_class) {double :computer_class, new: computer}
+  let(:computer) {double :computer}
   let(:comp_winning_board) {{1 => :x, 2 => :a, 3 => :o, 4 => :o, 5 => :x, 6 => :a, 7 => :a, 8 => :a, 9 => :x}}
   let(:human_winning_board) {{1 => :x, 2 => :a, 3 => :o, 4 => :a, 5 => :x, 6 => :o, 7 => :x, 8 => :a, 9 => :o}}
   let(:no_winning_board) {{1 => :x, 2 => :a, 3 => :o, 4 => :a, 5 => :x, 6 => :a, 7 => :x, 8 => :a, 9 => :o}}
@@ -13,6 +15,10 @@ describe Game do
 
     it 'should initiate a board' do
       expect(game.board).to_not be(nil)
+    end
+
+    it 'should initiate a board' do
+      expect(game.computer).to_not be(nil)
     end
 
     it 'should know that the computer goes first' do
