@@ -22,7 +22,7 @@ Feature: An unbeatable Tic Tic Toe
 
   Scenario: Submitting a human choice
   Given I have started the game
-  And I select cell "1"
+  And I click "1"
   Then I should see an "O" in cell "1"
 
   Scenario: Computer winning the game

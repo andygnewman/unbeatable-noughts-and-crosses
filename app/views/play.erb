@@ -2,16 +2,4 @@
 
 <section class="body-excluding-table">
   <h2>Human - select your cell</h2>
-
-  <p>
-    <select name="cell" form="human-choice">
-      <% @empty_cells.each do |cell| %>
-        <option value=<%= cell %>><%= cell %></option>
-      <% end %>
-    </select>
-
-    <form action='/human_choice' method="post" id="human-choice">
-      <input type="submit" value="submit">
-    </form>
-  </p>
 </section>

@@ -30,7 +30,7 @@ class TicTacToe < Sinatra::Base
     erb :play
   end
 
-  post '/human_choice' do
+  get '/human_choice/?:cell' do
     GAME.human_turn(params[:cell])
     redirect to('/play') unless GAME.winner != false
     redirect to('/winner')

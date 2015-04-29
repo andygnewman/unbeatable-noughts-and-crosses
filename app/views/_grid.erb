@@ -4,13 +4,17 @@
     <tr>
       <% slice.each do |pair|%>
       <td style="font-weight: <%= [:x,:o].include?(pair.last) ? 'bold' : 'normal' %>" >
-        <%= pair.last == :a ? pair.first : pair.last.to_s.upcase %></td>
+        <% if pair.last == :a %>
+          <a href="/human_choice/<%=pair.first%>"><%= pair.first %></a>
+        <% else %>
+          <%= pair.last.to_s.upcase %></td>
+        <% end %>
       <%end%>
     </tr>
   <%end%>
 </table>
 
 <h3>Key:</h3>
-<p> a - available to play</p>
+<p> number - available to play</p>
 <p> <span style="font-weight: bold;">X</span> Computer</p>
 <p><span style="font-weight: bold;">O</span> Human</p>

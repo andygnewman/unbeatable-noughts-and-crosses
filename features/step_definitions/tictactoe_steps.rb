@@ -38,25 +38,14 @@ Given(/^I have started the game$/) do
   click_on 'Play - Computer Starts'
 end
 
-Given(/^I select cell "([^"]*)"$/) do |cell|
-  select cell, from: "cell"
-  click_on "submit"
-end
-
 Given(/^moves that let the computer win have been taken$/) do
-  select "1", from: "cell"
-  click_on "submit"
-  select "8", from: "cell"
-  click_on "submit"
+  click_on "1"
+  click_on "8"
 end
 
 Given(/^moves that will result in a draw have been taken$/) do
-  select "1", from: "cell"
-  click_on "submit"
-  select "3", from: "cell"
-  click_on "submit"
-  select "8", from: "cell"
-  click_on "submit"
-  select "6", from: "cell"
-  click_on "submit"
+  click_on "1"
+  click_on "3"
+  click_on "8"
+  click_on "6"
 end
