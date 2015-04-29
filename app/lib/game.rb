@@ -29,8 +29,12 @@ class Game
     board.play(computer.choice(current_board), :x)
   end
 
-  def empty_cells
-    board.get_empty_cells
+  def empty_cells_array
+    board.get_empty_cells_array
+  end
+
+  def empty_cells_number
+    empty_cells_array.length
   end
 
   def human_turn(cell)
@@ -38,7 +42,7 @@ class Game
   end
 
   def draw?
-    empty_cells == 0
+    empty_cells_number == 0
   end
 
 end

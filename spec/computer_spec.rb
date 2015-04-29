@@ -7,6 +7,7 @@ describe Computer do
   let(:board_third_two) {{1 => :a, 2 => :o, 3 => :a, 4 => :a, 5 => :x, 6 => :a, 7 => :a, 8 => :a, 9 => :a}}
   let(:board_human_two_row) {{1 => :x, 2 => :o, 3 => :o, 4 => :a, 5 => :x, 6 => :a, 7 => :a, 8 => :x, 9 => :o}}
   let(:board_computer_two_row) {{1 => :x, 2 => :x, 3 => :o, 4 => :o, 5 => :x, 6 => :a, 7 => :a, 8 => :o, 9 => :a}}
+  let(:board_human_centre) {{1 => :a, 2 => :a, 3 => :a, 4 => :a, 5 => :o, 6 => :a, 7 => :a, 8 => :a, 9 => :a}}
 
   context 'choosing its moves:' do
 

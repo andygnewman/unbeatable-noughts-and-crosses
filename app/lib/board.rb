@@ -19,10 +19,10 @@ class Board
     return board_hash
   end
 
-  def get_empty_cells
+  def get_empty_cells_array
     empty_cells = []
     @cells.each { | ref, cell | empty_cells << ref if cell.status == :a}
-    return empty_cells.length
+    return empty_cells
   end
 
 end

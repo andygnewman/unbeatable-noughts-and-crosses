@@ -44,13 +44,13 @@ describe Game do
 
       it 'should announce a draw if no one has got 3 in a row' do
         allow(game).to receive(:current_board).and_return(drawing_board)
-        allow(game).to receive(:empty_cells).and_return(0)
+        allow(game).to receive(:empty_cells_number).and_return(0)
         expect(game.winner).to eq('Stalemate - a draw')
       end
 
       it 'should return false if no winner' do
         allow(game).to receive(:current_board).and_return(no_winning_board)
-        allow(game).to receive(:empty_cells).and_return(1)
+        allow(game).to receive(:empty_cells_number).and_return(1)
         expect(game.winner).to be(false)
       end
 

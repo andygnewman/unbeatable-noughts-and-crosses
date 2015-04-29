@@ -10,7 +10,7 @@ class Computer
     when 0
       first_move
     when 1
-      second_move(numan_first_move(board))
+      second_move(human_first_move(board))
     when 2
       third_move(human_first_move(board))
     else

@@ -10,15 +10,22 @@ class TicTacToe < Sinatra::Base
     erb :index
   end
 
-  get '/ready' do
+  get '/ready/?:starts' do
     GAME = Game.new
-    redirect to('/play')
+    redirect to('/play') if params[:starts] == 'computer'
+    redirect to('/human')
   end
 
   get '/play' do
     GAME.computer_turn
     redirect to('/winner') unless GAME.winner == false
-    @empty_cells = GAME.empty_cells
+    @empty_cells = GAME.empty_cells_array
+    @board = GAME.current_board
+    erb :play
+  end
+
+  get '/human' do
+    @empty_cells = GAME.empty_cells_array
     @board = GAME.current_board
     erb :play
   end
@@ -34,7 +41,6 @@ class TicTacToe < Sinatra::Base
     @board = GAME.current_board
     erb :winner
   end
-  
 
   # start the server if ruby file executed directly
   run! if app_file == $0

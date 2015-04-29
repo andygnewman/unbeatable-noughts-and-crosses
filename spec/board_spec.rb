@@ -26,8 +26,8 @@ describe Board do
       expect(board.get_board).to eq(summary_board)
     end
 
-    it 'should return the number of empty cells' do
-      expect(board.get_empty_cells).to eq(9)
+    it 'should return an array of empty cells' do
+      expect(board.get_empty_cells_array).to eq([1,2,3,4,5,6,7,8,9])
     end
 
   end
