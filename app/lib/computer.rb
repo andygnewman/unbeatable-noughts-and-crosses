@@ -1,7 +1,7 @@
 class Computer
 
   def initialize
-    @best_second_turn = {1 => [3,6,7,8], 7 => [1,9], 9 => [2,4]}
+    @best_third_move = {1 => [3,6,7,8], 7 => [1,9], 9 => [2,4]}
     @rows = [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]]
   end
 
@@ -9,8 +9,10 @@ class Computer
     case how_many_turns(board)
     when 0
       first_move
+    when 1
+      second_move(numan_first_move(board))
     when 2
-      second_turn(human_first_turn(board))
+      third_move(human_first_move(board))
     else
       best_possible(board)
     end
@@ -20,7 +22,7 @@ class Computer
     board.values.reject { |v| v == :a }.length
   end
 
-  def human_first_turn(board)
+  def human_first_move(board)
     board.key(:o)
   end
 
@@ -28,8 +30,12 @@ class Computer
     5
   end
 
-  def second_turn(human_play)
-    @best_second_turn.select { |k, v| v.include?(human_play) }.keys.first
+  def second_move(human_move)
+    human_move == 5 ? 1 : 5
+  end
+
+  def third_move(human_move)
+    @best_third_move.select { |k, v| v.include?(human_move) }.keys.first
   end
 
   def best_possible(board)
