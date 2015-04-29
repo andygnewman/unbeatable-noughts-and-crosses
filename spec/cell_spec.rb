@@ -19,11 +19,6 @@ describe Cell do
       expect(cell.status).to eq(:x)
     end
 
-    it 'should raise an error if a previously played cell is played again' do
-      cell.play(:x)
-      expect{cell.play(:o)}.to raise_error(RuntimeError, 'This cell has already been played')
-    end
-
   end
 
 end

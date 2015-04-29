@@ -12,10 +12,6 @@ class Game
     @rows = [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]]
   end
 
-  def swap_turn
-    @turn = @turn == :computer ? :human : :computer
-  end
-
   def winner
     @rows.each do |row|
       return 'Computer Wins' if row.select { |cell| current_board[cell] == :x }.length == 3
@@ -42,7 +38,7 @@ class Game
   end
 
   def draw?
-    empty_cells.length == 0
+    empty_cells == 0
   end
 
 end

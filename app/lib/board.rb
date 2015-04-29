@@ -22,7 +22,7 @@ class Board
   def get_empty_cells
     empty_cells = []
     @cells.each { | ref, cell | empty_cells << ref if cell.status == :a}
-    return empty_cells
+    return empty_cells.length
   end
-  
+
 end

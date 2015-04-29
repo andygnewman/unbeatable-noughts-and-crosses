@@ -49,7 +49,7 @@ class Computer
   def block_or_win(two_symbol, one_symbol, board)
     @rows.each do |row|
       if (row.select { |cell| board[cell] == two_symbol }.length == 2 &&
-        row.select { |cell| board[cell] == one_symbol }.length == 0)
+        row.any? { |cell| board[cell] == one_symbol } == false)
         return row.select { |cell| board[cell] == :a }.first
       end
     end
