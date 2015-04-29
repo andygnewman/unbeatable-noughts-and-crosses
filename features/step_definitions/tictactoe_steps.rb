@@ -2,6 +2,11 @@ Given(/^I am on the homepage$/) do
   visit '/'
 end
 
+Then(/^I should see "([^"]*)" and "([^"]*)"$/) do |content1, content2|
+  expect(page).to have_content(content1)
+  expect(page).to have_content(content2)
+end
+
 Then(/^I should see "([^"]*)"$/) do |content|
   expect(page).to have_content(content)
 end
@@ -22,9 +27,15 @@ Then(/^I should see an "([^"]*)" in cell "([^"]*)"$/) do |content, cell|
   expect(page.all('table td')[cell.to_i - 1]).to have_content(content)
 end
 
+Then(/^I should see the numbers (\d+) to (\d+) in the cells$/) do |start, finish|
+  [*start.to_i..finish.to_i].each do |i|
+    expect(page.all('table td')[i - 1]).to have_content(i)
+  end
+end
+
 Given(/^I have started the game$/) do
   visit '/'
-  click_on 'Start the game'
+  click_on 'Play - Computer Starts'
 end
 
 Given(/^I select cell "([^"]*)"$/) do |cell|

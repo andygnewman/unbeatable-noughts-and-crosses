@@ -6,13 +6,19 @@ Feature: An unbeatable Tic Tic Toe
   Scenario: Starting the game
   Given I am on the homepage
   Then I should see "Welcome to Tic Tac Toe"
-  And I should see "Start the game"
+  And I should see "Play - Human Starts" and "Play - Computer Starts"
 
-  Scenario: Starting the game
+  Scenario: Starting the game - Computer first
   Given I am on the homepage
-  And I click "Start the game"
+  And I click "Play - Computer Starts"
   Then I should see a grid with 9 cells
   And I should see an "X" in cell "5"
+
+  Scenario: Starting the game - Human first
+  Given I am on the homepage
+  And I click "Play - Human Starts"
+  Then I should see a grid with 9 cells
+  And I should see the numbers 1 to 9 in the cells
 
   Scenario: Submitting a human choice
   Given I have started the game
