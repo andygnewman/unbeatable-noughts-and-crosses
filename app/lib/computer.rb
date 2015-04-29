@@ -7,14 +7,10 @@ class Computer
 
   def choice(board)
     case how_many_turns(board)
-    when 0
-      first_move
-    when 1
-      second_move(human_first_move(board))
-    when 2
-      third_move(human_first_move(board))
-    else
-      best_possible(board)
+    when 0; first_move
+    when 1; second_move(human_first_move(board))
+    when 2; third_move(human_first_move(board))
+    else best_possible(board)
     end
   end
 

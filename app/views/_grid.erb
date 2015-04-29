@@ -1,20 +1,22 @@
-<table class="tictactoe-grid">
-  <th colspan="3">Tic Tac Toe</th>
-  <% @board.each_slice(3) do |slice| %>
-    <tr>
-      <% slice.each do |pair|%>
-      <td style="font-weight: <%= [:x,:o].include?(pair.last) ? 'bold' : 'normal' %>" >
-        <% if pair.last == :a %>
-          <a href="/human_choice/<%=pair.first%>"><%= pair.first %></a>
-        <% else %>
-          <%= pair.last.to_s.upcase %></td>
-        <% end %>
-      <%end%>
-    </tr>
-  <%end%>
-</table>
+<section>
+  <table class="tictactoe-grid">
+    <th colspan="3">Tic Tac Toe</th>
+    <% @board.each_slice(3) do |slice| %>
+      <tr>
+        <% slice.each do |pair|%>
+        <td style="font-weight: <%= [:x,:o].include?(pair.last) ? 'bold' : 'normal' %>" >
+          <% if pair.last == :a %>
+            <a href="/human_choice/<%=pair.first%>"><%= pair.first %></a>
+          <% else %>
+            <%= pair.last.to_s.upcase %></td>
+          <% end %>
+        <%end%>
+      </tr>
+    <%end%>
+  </table>
 
-<h3>Key:</h3>
-<p> number - available to play</p>
-<p> <span style="font-weight: bold;">X</span> Computer</p>
-<p><span style="font-weight: bold;">O</span> Human</p>
+  <h3>Key:</h3>
+  <p> number - available to play</p>
+  <p> <span style="font-weight: bold;">X</span> Computer</p>
+  <p><span style="font-weight: bold;">O</span> Human</p>
+</section>
