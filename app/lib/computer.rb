@@ -1,3 +1,5 @@
+# Implement minimax
+
 class Computer
 
   def initialize
@@ -5,6 +7,7 @@ class Computer
     @rows = [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]]
   end
 
+  # Why not use the board object that already exists?
   def choice(board)
     case how_many_turns(board)
     when 0; first_move
@@ -14,6 +17,7 @@ class Computer
     end
   end
 
+  # should be able to ask the board
   def how_many_turns(board)
     board.values.reject { |v| v == :a }.length
   end

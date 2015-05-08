@@ -1,5 +1,6 @@
 require_relative 'cell'
 
+# Data structure should be hidden
 class Board
 
   attr_reader :cells
@@ -13,12 +14,14 @@ class Board
     cells[cell].play(symbol)
   end
 
+  # remove call to each / use Enumerable
   def get_board
     board_hash = {}
     @cells.each { | ref, cell | board_hash[ref] = cell.status }
     return board_hash
   end
 
+  # remove call to each / use Enumerable
   def get_empty_cells_array
     empty_cells = []
     @cells.each { | ref, cell | empty_cells << ref if cell.status == :a}

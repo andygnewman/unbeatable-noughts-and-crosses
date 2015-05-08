@@ -8,7 +8,7 @@ describe Cell do
 
     it 'should have a status of available' do
       expect(cell.status).to eq(:a)
-    end
+   end 
 
   end
 
